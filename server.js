@@ -1,17 +1,21 @@
-const express= require('express');
-const mongoose= require('mongoose');
-const bodyParser= require('body-parser');
-const port=8000;
-const app= express();
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const PORT = 5000;
+const app = express();
+const User = require('./models/User');
 
+mongoose.connect('mongodb://localhost/user_data', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 app.use(bodyParser.json());
 
-app.listen(port, ()=>{
-	console.log(`server is listening on port:${port}`)
-})
+app.listen(PORT, () => console.log(`Server is listening on port:${PORT}`))
 
 // CREATE
-app.post('/users',(req,res)=>{
+app.post('/users', (req,res) => {
   // User.create()
 })
 
